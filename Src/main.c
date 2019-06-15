@@ -53,6 +53,7 @@ UART_HandleTypeDef huart4;
 uint8_t Received1 = 0x00;
 uint8_t Received2 = 0x00;
 unsigned char buffer[8];      // buffer to put string
+int uartslower = 0;
 
 /* USER CODE END PV */
 
@@ -99,12 +100,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
 	 HAL_UART_Receive_IT(&huart4, &Received2, 8); // Ponowne w³¹czenie nas³uchiwania
  }
- itoa(Received1, buffer, 10);    // make the string
- 	  lcd_send_cmd(0x01);
- 	  lcd_send_cmd(0x80);
- 	  lcd_send_cmd(0x14);
- 	  lcd_send_cmd(0x14);
- 	  lcd_send_string (buffer);
+
 
 }
 
@@ -324,7 +320,7 @@ static void MX_TIM7_Init(void)
   htim7.Instance = TIM7;
   htim7.Init.Prescaler = 9999;
   htim7.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim7.Init.Period = 4999;
+  htim7.Init.Period = 9999;
   htim7.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim7) != HAL_OK)
   {
