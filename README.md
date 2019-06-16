@@ -18,5 +18,5 @@ The core concept is simple:
 For this project the STM32 NUCLEO-F072RB - STM32F072RB ARM Cortex M0 was used
 
 ## Authors:
-Marcin Trocha
-Michał Labuda
+- Marcin Trocha
+- Michał Labuda
